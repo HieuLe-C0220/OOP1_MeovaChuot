@@ -10,12 +10,6 @@
         this.name = name;
         this.weight = weight;
         this.speed = speed;
-        this.getWeight = function () {
-            return this.weight;
-        };
-        this.getSpeed = function () {
-            return this.speed;
-        };
         this.sound = function () {
             alert("Chit chit!");
         };
@@ -24,17 +18,11 @@
         this.name = name;
         this.weight = weight;
         this.speed = speed;
-        this.getWeight = function () {
-            return this.weight;
-        };
-        this.getSpeed = function () {
-            return this.speed;
-        };
         this.sound = function () {
             alert("Meo meo!");
         };
         this.batChuot = function (rat) {
-            if (this.speed > rat.getSpeed()) {
+            if (this.speed > rat.speed) {
                 rat.sound();
                 alert("Mèo "+this.name + " bắt được chuột "+rat.name);
             } else {
@@ -43,7 +31,7 @@
         };
         this.eatRat = function (rat) {
             if (!rat.status) {
-                this.weight += rat.getWeight();
+                this.weight += rat.weight;
                 alert("Mèo đã ăn chuột");
                 rat.status = false;
             }
