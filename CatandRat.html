@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Mèo và Chuột</title>
+</head>
+<body>
+<script>
+    let Rat = function (name,weight,speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.getSpeed = function () {
+            return this.speed;
+        };
+        this.sound = function () {
+            alert("Chit chit!");
+        };
+    };
+    let Cat = function (name,weight,speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.getSpeed = function () {
+            return this.speed;
+        };
+        this.sound = function () {
+            alert("Meo meo!");
+        };
+        this.batChuot = function (rat) {
+            if (this.speed > rat.getSpeed()) {
+                rat.sound();
+                alert("Mèo "+this.name + " bắt được chuột "+rat.name);
+            } else {
+                alert("Mèo "+this.name + " bắt được chuột "+rat.name);
+            }
+        };
+        this.eatRat = function (rat) {
+            if (!rat.status) {
+                this.weight += rat.getWeight();
+                alert("Mèo đã ăn chuột");
+                rat.status = false;
+            }
+        }
+    };
+    let chuot1 = new Rat("Jerry",2,60);
+    let meo1 = new Cat("Tom",7,80);
+    meo1.batChuot(chuot1);
+    meo1.eatRat(chuot1);
+</script>
+</body>
+</html>
